@@ -6,6 +6,7 @@ using System.Web;
 using System.Web.Mvc;
 using LojaDeEsporte.Domain.Model.Entities;
 using LojaDeEsporte.Domain.Model.Repository;
+using LojaDeEsporte.Presentation.WebApp.Models;
 
 namespace LojaDeEsporte.Presentation.WebApp.Controllers
 {
@@ -27,7 +28,23 @@ namespace LojaDeEsporte.Presentation.WebApp.Controllers
 
         public ActionResult Index(int pagina = 1)
         {
-            return View(_repositorio.Produtos.OrderBy(p => p.Nome).Skip((pagina - 1) * TamanhoDaPagina).Take(TamanhoDaPagina));
+            ProdutoViewModel produtoViewModel = new ProdutoViewModel()
+                {
+                    Produtos = _repositorio.Produtos
+                                            .OrderBy(p => p.Nome)
+                                            .Skip((pagina - 1) * TamanhoDaPagina)
+                                            .Take(TamanhoDaPagina),
+
+                    InformacaoDePaginacao = new InformacaoDePaginacao()
+                        {
+                            PaginaAtual = pagina, 
+                            ItensPorPagina = TamanhoDaPagina, 
+                            TotalDeItems = _repositorio.Produtos.Count()
+                        }
+                };
+
+
+            return View(produtoViewModel);
         }
 
         [HttpGet]
