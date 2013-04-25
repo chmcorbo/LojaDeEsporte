@@ -1,0 +1,14 @@
+- Criar uma entidade Categoria com:
+ - Id
+ - Nome
+
+- Criar uma View que Exiba todas as Categorias Existentes
+  - À partir da view Categoria, ao selecionar uma determinada categoria, exibir a lista de produtos associados a ela;
+
+- Na View que exibe os produtos, ao selecionar um produto, exibir a lista de categorias associadas a ele;
+
+- Tanto produto quanto categoria devem possuir as funcionalidades de Adicionar, Remover e Atualizar em suas Views.
+
+- Criar Testes Unitários para todas as controllers e repositórios do sistema;
+
+- Executar injeção de dependencia, utilizando o Unity através do modo XML;
