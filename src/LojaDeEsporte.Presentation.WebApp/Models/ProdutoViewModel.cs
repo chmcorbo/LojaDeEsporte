@@ -12,6 +12,7 @@ namespace LojaDeEsporte.Presentation.WebApp.Models
     {
         public IEnumerable<Produto> Produtos { get; set; }
         public InformacaoDePaginacao InformacaoDePaginacao { get; set; }
+        public string Categoria { get; set; }
     }
 
 

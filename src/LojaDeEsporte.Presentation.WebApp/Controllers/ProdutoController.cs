@@ -25,24 +25,36 @@ namespace LojaDeEsporte.Presentation.WebApp.Controllers
 
         //
         // GET: /Produto/
-
-        public ActionResult Index(int pagina = 1)
+        public ActionResult Index(string categoria, int pagina = 1)
         {
+            IEnumerable<Produto> produtos;
+
+            if (string.IsNullOrEmpty(categoria))
+                produtos = _repositorio.Produtos
+                                       .OrderBy(p => p.Nome)
+                                       .Skip((pagina - 1)*TamanhoDaPagina)
+                                       .Take(TamanhoDaPagina);
+            else
+                produtos = _repositorio.Produtos
+                                       .Where(p => p.Categoria == null || p.Categoria.Nome == categoria)
+                                       .OrderBy(p => p.Nome)
+                                       .Skip((pagina - 1)*TamanhoDaPagina)
+                                       .Take(TamanhoDaPagina);
+
+
             ProdutoViewModel produtoViewModel = new ProdutoViewModel()
                 {
-                    Produtos = _repositorio.Produtos
-                                            .OrderBy(p => p.Nome)
-                                            .Skip((pagina - 1) * TamanhoDaPagina)
-                                            .Take(TamanhoDaPagina),
-
+                    Produtos = produtos,
                     InformacaoDePaginacao = new InformacaoDePaginacao()
                         {
                             PaginaAtual = pagina, 
-                            ItensPorPagina = TamanhoDaPagina, 
-                            TotalDeItems = _repositorio.Produtos.Count()
-                        }
+                            ItensPorPagina = TamanhoDaPagina,
+                            TotalDeItems = categoria == null ? 
+                                _repositorio.Produtos.Count() : 
+                                _repositorio.Produtos.Count(p => p.Categoria.Nome == categoria)
+                        },
+                    Categoria = categoria
                 };
-
 
             return View(produtoViewModel);
         }

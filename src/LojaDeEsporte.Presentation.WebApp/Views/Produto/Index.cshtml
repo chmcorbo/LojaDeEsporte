@@ -11,52 +11,55 @@
     <meta name="viewport" content="width=device-width" />
     <title>Index</title>
 </head>
-<body>
-    <p>
-        @Html.ActionLink("Create New", "Adicionar")
-    </p>
-    <table>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Produtos.FirstOrDefault().Nome)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Produtos.FirstOrDefault().Descricao)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Produtos.FirstOrDefault().Categoria)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Produtos.FirstOrDefault().Preco)
-            </th>
-            <th></th>
-        </tr>
-    
-        @foreach (var item in Model.Produtos) {
+    <body>
+        <div id="categorias">
+            @{Html.RenderAction("Menu", "Navegacao");}
+        </div>
+        <p>
+            @Html.ActionLink("Create New", "Adicionar")
+        </p>
+        <table>
             <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Nome)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Descricao)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Categoria.Nome)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Preco)
-                </td>
-                <td>
-                    @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-                    @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-                    @Html.ActionLink("Delete", "Delete", new { id=item.Id })
-                </td>
+                <th>
+                    @Html.DisplayNameFor(model => model.Produtos.FirstOrDefault().Nome)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Produtos.FirstOrDefault().Descricao)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Produtos.FirstOrDefault().Categoria)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Produtos.FirstOrDefault().Preco)
+                </th>
+                <th></th>
             </tr>
-        }
-    </table>
-    <div>
-        @Html.PaginasLinks(Model.InformacaoDePaginacao, x => Url.Action("Index", new { pagina = x }))
-    </div>
+    
+            @foreach (var item in Model.Produtos) {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Nome)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Descricao)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Categoria.Nome)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Preco)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+                        @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+                        @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+                    </td>
+                </tr>
+            }
+        </table>
+        <div>
+            @Html.PaginasLinks(Model.InformacaoDePaginacao, x => Url.Action("Index", new { pagina = x, categoria = Model.Categoria }))
+        </div>
 
-</body>
+    </body>
 </html>
