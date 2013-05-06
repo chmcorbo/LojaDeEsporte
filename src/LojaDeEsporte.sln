@@ -1,11 +1,13 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LojaDeEsporte.Presentation.WebApp", "LojaDeEsporte.Presentation.WebApp\LojaDeEsporte.Presentation.WebApp.csproj", "{6FC36BFB-A10E-4BB0-AC18-BEEF03DC0501}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LojaDeEsporte.Domain.Model", "LojaDeEsporte.Domain.Model\LojaDeEsporte.Domain.Model.csproj", "{D67B6F25-199F-4850-A245-09AC8B8BDBA8}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LojaDeEsporte.Presentation.WebApp.Tests", "LojaDeEsporte.Presentation.WebApp.Tests\LojaDeEsporte.Presentation.WebApp.Tests.csproj", "{09E877FB-F6A7-43EB-B4D4-C3A0C37696F4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LojaDeEsporte.Infraestrutura.NHibernate", "LojaDeEsporte.Infraestrutura.NHibernate\LojaDeEsporte.Infraestrutura.NHibernate.csproj", "{3CD461BA-95A1-4FA5-8377-93195A78BD37}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -25,6 +27,10 @@ Global
 		{09E877FB-F6A7-43EB-B4D4-C3A0C37696F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{09E877FB-F6A7-43EB-B4D4-C3A0C37696F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{09E877FB-F6A7-43EB-B4D4-C3A0C37696F4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3CD461BA-95A1-4FA5-8377-93195A78BD37}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3CD461BA-95A1-4FA5-8377-93195A78BD37}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3CD461BA-95A1-4FA5-8377-93195A78BD37}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3CD461BA-95A1-4FA5-8377-93195A78BD37}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

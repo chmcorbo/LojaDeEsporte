@@ -1,17 +1,18 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>8.0.30703</ProductVersion>
-    <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{D67B6F25-199F-4850-A245-09AC8B8BDBA8}</ProjectGuid>
+    <ProjectGuid>{3CD461BA-95A1-4FA5-8377-93195A78BD37}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>LojaDeEsporte.Domain.Model</RootNamespace>
-    <AssemblyName>LojaDeEsporte.Domain.Model</AssemblyName>
+    <RootNamespace>LojaDeEsporte.Infraestrutura.NHibernate</RootNamespace>
+    <AssemblyName>LojaDeEsporte.Infraestrutura.NHibernate</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -31,6 +32,15 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="FluentNHibernate">
+      <HintPath>..\packages\FluentNHibernate.1.3.0.733\lib\FluentNHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="Iesi.Collections">
+      <HintPath>..\packages\Iesi.Collections.3.2.0.4000\lib\Net35\Iesi.Collections.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate">
+      <HintPath>..\packages\NHibernate.3.3.3.4000\lib\Net35\NHibernate.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -40,12 +50,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Entities\CarrinhoDeCompra.cs" />
-    <Compile Include="Entities\Categoria.cs" />
-    <Compile Include="Entities\Produto.cs" />
+    <Compile Include="Builders\HybridSessionBuilder.cs" />
+    <Compile Include="Mapping\CarrinhoDeCompraMapping.cs" />
+    <Compile Include="Mapping\CategoriaMapping.cs" />
+    <Compile Include="Mapping\ProdutoMapping.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repository\ICategoriaRepository.cs" />
-    <Compile Include="Repository\IProdutoRepository.cs" />
+    <Compile Include="Repositories\CategoriaRepository.cs" />
+    <Compile Include="Repositories\ProdutoRepository.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\LojaDeEsporte.Domain.Model\LojaDeEsporte.Domain.Model.csproj">
+      <Project>{D67B6F25-199F-4850-A245-09AC8B8BDBA8}</Project>
+      <Name>LojaDeEsporte.Domain.Model</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

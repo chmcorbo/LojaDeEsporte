@@ -14,6 +14,11 @@ namespace LojaDeEsporte.Presentation.WebApp
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(null,
+                "Categoria",
+                new { controller = "Categoria", action = "Index" }
+            );
+
+            routes.MapRoute(null,
                 "",
                 new { controller = "Produto", action = "Index", categoria = (string)null, pagina = 1 }
             );

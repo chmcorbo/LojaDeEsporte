@@ -121,6 +121,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Bootstrapper.cs" />
+    <Compile Include="Controllers\CategoriaController.cs" />
     <Compile Include="Controllers\NavegacaoController.cs" />
     <Compile Include="Controllers\ProdutoController.cs" />
     <Compile Include="Global.asax.cs">
@@ -157,12 +158,6 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\LojaDeEsporte.Domain.Model\LojaDeEsporte.Domain.Model.csproj">
-      <Project>{D67B6F25-199F-4850-A245-09AC8B8BDBA8}</Project>
-      <Name>LojaDeEsporte.Domain.Model</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="Views\Produto\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
@@ -170,6 +165,22 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Navegacao\Menu.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\LojaDeEsporte.Domain.Model\LojaDeEsporte.Domain.Model.csproj">
+      <Project>{d67b6f25-199f-4850-a245-09ac8b8bdba8}</Project>
+      <Name>LojaDeEsporte.Domain.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LojaDeEsporte.Infraestrutura.NHibernate\LojaDeEsporte.Infraestrutura.NHibernate.csproj">
+      <Project>{3cd461ba-95a1-4fa5-8377-93195a78bd37}</Project>
+      <Name>LojaDeEsporte.Infraestrutura.NHibernate</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Categoria\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Categoria\Adicionar.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
