@@ -30,8 +30,11 @@ namespace LojaDeEsporte.Presentation.WebApp
 
         public static void RegisterTypes(IUnityContainer container)
         {
-            container.RegisterType<IProdutoRepository, Infraestrutura.NHibernate.Repositories.ProdutoRepository>(new ContainerControlledLifetimeManager());
-            container.RegisterType<ICategoriaRepository, Infraestrutura.NHibernate.Repositories.CategoriaRepository>(new ContainerControlledLifetimeManager());
+            //container.RegisterType<IProdutoRepository, Infraestrutura.NHibernate.Repositories.ProdutoRepository>(new ContainerControlledLifetimeManager());
+            //container.RegisterType<ICategoriaRepository, Infraestrutura.NHibernate.Repositories.CategoriaRepository>(new ContainerControlledLifetimeManager());
+
+            container.RegisterType<IProdutoRepository, ProdutoRepository>(new ContainerControlledLifetimeManager());
+            container.RegisterType<ICategoriaRepository, CategoriaRepository>(new ContainerControlledLifetimeManager());
         }
     }
 }

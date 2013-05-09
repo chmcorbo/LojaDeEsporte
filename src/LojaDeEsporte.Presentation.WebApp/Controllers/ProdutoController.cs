@@ -83,5 +83,11 @@ namespace LojaDeEsporte.Presentation.WebApp.Controllers
 
             return RedirectToAction("Index");
         }
+
+        public ActionResult Detalhes(Guid Id)
+        {
+            Produto produto = _repositorio.Produtos.FirstOrDefault(p => p.Id == Id);
+            return View(produto);
+        }
     }
 }
