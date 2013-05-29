@@ -11,31 +11,36 @@
     <meta name="viewport" content="width=device-width" />
     <title>Index</title>
 </head>
-<body>
-    <p>
-        @Html.ActionLink("Adicionar Categoria", "Adicionar")
-    </p>
-    <table>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Nome)
-            </th>
-        </tr>
-
-        @foreach (var item in Model)
-        {
+    <body>
+        <h1>@LojaDeEsporte.Presentation.WebApp.Resources.Views.Categoria.CategoriaStrings.Title</h1>
+        <p>
+            @Html.ActionLink("Adicionar Categoria", "Adicionar")
+        </p>
+        <p>
+            @Html.ActionLink("Portugues", "ChangeCulture", new { language = "pt", returnUrl = Request.RawUrl }, null)
+            @Html.ActionLink("Inglês", "ChangeCulture", new { language = "en", returnUrl = Request.RawUrl }, null)
+        </p>
+        <table>
             <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Nome)
-                </td>
-                <td>
-                    @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
-                    @Html.ActionLink("Details", "Details", new { id = item.Id }) |
-                    @Html.ActionLink("Delete", "Delete", new { id = item.Id }) |
-                </td>
+                <th>
+                    @Html.DisplayNameFor(model => model.Nome)
+                </th>
             </tr>
-        }
-    </table>
 
-</body>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Nome)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.Id }) |
+                    </td>
+                </tr>
+            }
+        </table>
+
+    </body>
 </html>

@@ -121,6 +121,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Bootstrapper.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CarrinhoController.cs" />
     <Compile Include="Controllers\CategoriaController.cs" />
     <Compile Include="Controllers\NavegacaoController.cs" />
@@ -132,10 +133,21 @@
     <Compile Include="Infrastructure\CategoriaRepository.cs" />
     <Compile Include="Infrastructure\ProdutoRepository.cs" />
     <Compile Include="Models\InformacaoDePaginacao.cs" />
+    <Compile Include="Models\LoginViewModel.cs" />
     <Compile Include="Models\ProdutoViewModel.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Resources\Models\Account\ValidationStrings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ValidationStrings.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Views\Categoria\CategoriaStrings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CategoriaStrings.resx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\FilterConfig.cs" />
@@ -190,6 +202,21 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Carrinho\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Account\Login.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Models\Account\ValidationStrings.pt.resx" />
+    <EmbeddedResource Include="Resources\Models\Account\ValidationStrings.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ValidationStrings.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Views\Categoria\CategoriaStrings.pt.resx" />
+    <EmbeddedResource Include="Resources\Views\Categoria\CategoriaStrings.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>CategoriaStrings.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
